@@ -249,7 +249,7 @@ async function calculateTotalQuantityAndPrice() {
     totalCartProduct.textContent = totalQuantity;
     //On affiche le prix total de produits dans le panier
     let totalProductPrice = document.querySelector("#totalPrice");
-    totalProductPrice.textContent = totalQuantity;
+    totalProductPrice.textContent = totalPrice;
   }
 }
 // Une fonction qui permet de modifier la quantité de produits directement dans le panier
@@ -280,4 +280,50 @@ function deleteCartProductFromCart(article) {
   localStorage.setItem(CART_KEY, JSON.stringify(cartProductFiltered));
   //Suppression du produit selectionné par le client
   article.remove();
+}
+
+// Une fonction qui permet de vérifier toutes les informations du client pour effectuer sa commande
+function checkContactInput(value, regex, pError, msgError) {
+  //si les informations remplies par le client ne correspondent pas au REGEX définis, alors ça renvoie un message d'erreur
+  if (!regex.test(value)) {
+    pError.textContent = msgError;
+    return false;
+  }
+  //sinon le formulaire d'informations rempli par le client est correct
+  else {
+     pError.textContent = "";
+
+     return true;
+  }
+}
+
+//Une fonction qui retourne le tableau des ids qui se trouvent dans le panier
+function findCartProductIdsFromCart() {
+  //déclaration de la variable contenant le tableau des ids
+  let productIds = [];
+  //Déclaration de la variable qui récupère les produit qui sont dans le panier
+  let cartProducts = getProductsFromCart();
+  //
+  for (let p = 0; p < cartProducts.length; p++) {
+    productIds.push(cartProducts[p].id);
+  }
+  return productIds;
+}
+
+//Une fonction asynchrone permettant d'envoyer les informations clients pour effectuer la commande
+async function order(contact, productIds) {
+  //déclaration de la variable qui récupère les informations client et les produits dans le panier
+  let formPost = {
+    contact: contact,
+    products: productIds,
+  };
+  //déclaration de la variable permettant de récupérer la commande et l'envoyer sur la page de confirmation
+  let response = await fetch(`${BASE_URL}/order`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formPost),
+  });
+  return response.json();
 }
