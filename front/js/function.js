@@ -43,7 +43,7 @@ function buildProductToHtml(product) {
   return a;
 }
 
-//Une focntion qui prend en paramètre le choix de couleur d'un produit
+//Une fonction qui prend en paramètre le choix de couleur d'un produit
 function buildOptionOfColor(color) {
   // déclaration de la variable qui affiche le choix des couleurs pour les produits
   let option = document.createElement("option");
