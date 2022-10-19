@@ -118,6 +118,8 @@ function checkQuantity(quantity) {
     return true;
   }
 }
+
+
 //Une fonction permettant de récupérer les produits choisi par le client dans le localstorage
 function getProductsFromCart() {
   //Déclaration de la variable permettant de récupérer les produits dans le localstorage
@@ -131,6 +133,8 @@ function getProductsFromCart() {
     return JSON.parse(cartProducts);
   }
 }
+
+
 //Une fonction permettant d'envoyer le produit choisi dans le panier
 function addProductTocart(product, color, quantity) {
   //déclaration de la variable qui choisit le produit en fonction de son id, sa couleur et sa quantité
@@ -252,6 +256,8 @@ async function calculateTotalQuantityAndPrice() {
     totalProductPrice.textContent = totalPrice;
   }
 }
+
+
 // Une fonction qui permet de modifier la quantité de produits directement dans le panier
 function modifyCartProductQuantityFromCart(productId, color, newQuantity) {
   //Déclaration de la variable qui récupère les produit qui sont dans le panier

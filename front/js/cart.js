@@ -50,7 +50,7 @@ async function displayAndManageCart() {
         let response = confirm(
           "Etes-vous sûr de vouloir supprimer ce produit?"
         );
-        // si le client confirme, alors Le produitdisparait du panier.
+        // si le client confirme, alors Le produit disparait du panier.
         if (response) {
           //Appel de la fonction qui supprime le produit selectionné
           deleteCartProductFromCart(article);
