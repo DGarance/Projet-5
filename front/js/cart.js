@@ -11,6 +11,7 @@ async function displayAndManageCart() {
     //Déclaration de la vairable contenant le message
     let titleCart = document.querySelector("h1");
     titleCart.textContent = "Votre panier est vide";
+    calculateTotalQuantityAndPrice();
   }
   //Sinon on affiche les produits selectionnés par le client dans le panier
   else {
@@ -68,22 +69,22 @@ async function displayAndManageCart() {
       e.preventDefault();
       // Définition des variables pour le prénom du client
       let firstNameValue = document.querySelector("#firstName").value;
-      let firstNameRegex = /^[A-Za-z éèêëàâîïôöûü-]+$/;
+      let firstNameRegex = /^[A-Za-zéèêëàâîïôöûü-]+$/;
       let pfirstNameErrorMsg = document.querySelector("#firstNameErrorMsg");
       let firstNameErrorMsg = "Champ invalide! Veuillez vérifier votre saisie";
       // Définition des variables pour le nom du client
       let lastNameValue = document.querySelector("#lastName").value;
-      let lastNameRegex = /^[A-Za-z éèêëàâîïôöûü-]+$/;
+      let lastNameRegex = /^[A-Za-zéèêëàâîïôöûü-]+$/;
       let plastNameErrorMsg = document.querySelector("#lastNameErrorMsg");
       let lastNameErrorMsg = "Champ invalide! Veuillez vérifier votre saisie";
       // Définition des variables pour l'adresse du client
       let addressValue = document.querySelector("#address").value;
-      let addressRegex = /^[a-zA-Z0-9\s,'-]+$/;
+      let addressRegex = /^[a-zA-Z0-9,'-]+[a-zA-Z0-9,\s'-]*$/;
       let paddressErrorMsg = document.querySelector("#addressErrorMsg");
       let addressErrorMsg = "Champ invalide! Veuillez vérifier votre saisie";
       // Définition des variables pour la ville du client
       let cityValue = document.querySelector("#city").value;
-      let cityRegex = /^[A-Za-z éèêëàâîïôöûü-]+$/;
+      let cityRegex = /^[A-Za-zéèêëàâîïôöûü-]+$/;
       let pcityErrorMsg = document.querySelector("#cityErrorMsg");
       let cityErrorMsg = "Champ invalide! Veuillez vérifier votre saisie";
       // Définition des variables pour l'adresse mail du client

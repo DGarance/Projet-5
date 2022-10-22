@@ -119,7 +119,6 @@ function checkQuantity(quantity) {
   }
 }
 
-
 //Une fonction permettant de récupérer les produits choisi par le client dans le localstorage
 function getProductsFromCart() {
   //Déclaration de la variable permettant de récupérer les produits dans le localstorage
@@ -133,7 +132,6 @@ function getProductsFromCart() {
     return JSON.parse(cartProducts);
   }
 }
-
 
 //Une fonction permettant d'envoyer le produit choisi dans le panier
 function addProductTocart(product, color, quantity) {
@@ -150,6 +148,15 @@ function addProductTocart(product, color, quantity) {
   );
   // Si on trouve le produit dans le localstorage, on y récupère la quantité saisit par le client
   if (foundProduct) {
+    let newQuantity = foundProduct.quantity + parseInt(quantity);
+
+    //Lorsque le client ajoute un produit jusqu'à la valeur maximale, il reçoit une alerte lorsqu'il a atteinte
+    if (!checkQuantity(newQuantity)) {
+      alert(
+        "Vous ne pouvez pas mettre plus de 100 produits dans le panier! La quantité de produit est comprise entre 1 et 100."
+      );
+      return;
+    }
     foundProduct.quantity = foundProduct.quantity + parseInt(quantity);
   }
   //Sinon on récupère le produit et on le met dans le panier
@@ -158,6 +165,8 @@ function addProductTocart(product, color, quantity) {
   }
   //on stocke les produits selectionnés dans le localstorage de la page panier
   localStorage.setItem(CART_KEY, JSON.stringify(cartProducts));
+  //On renvoie une alerte confirmant que l'article a bien été ajouté au panier
+  alert("Le produit a été ajouté au panier");
 }
 
 //Une fonction qui permet d'afficher les produits choisit par le client dans le panier
@@ -248,15 +257,14 @@ async function calculateTotalQuantityAndPrice() {
 
     let product = await getProductById(cartProduct.id);
     totalPrice = totalPrice + product.price * cartProduct.quantity;
-    //On affiche la quantité totale de produits dans le panier
-    let totalCartProduct = document.querySelector("#totalQuantity");
-    totalCartProduct.textContent = totalQuantity;
-    //On affiche le prix total de produits dans le panier
-    let totalProductPrice = document.querySelector("#totalPrice");
-    totalProductPrice.textContent = totalPrice;
   }
+  //On affiche la quantité totale de produits dans le panier
+  let totalCartProduct = document.querySelector("#totalQuantity");
+  totalCartProduct.textContent = totalQuantity;
+  //On affiche le prix total de produits dans le panier
+  let totalProductPrice = document.querySelector("#totalPrice");
+  totalProductPrice.textContent = totalPrice;
 }
-
 
 // Une fonction qui permet de modifier la quantité de produits directement dans le panier
 function modifyCartProductQuantityFromCart(productId, color, newQuantity) {
@@ -278,9 +286,9 @@ function deleteCartProductFromCart(article) {
   let color = article.dataset.color;
   //Déclaration de la variable qui récupère les produit qui sont dans le panier
   let cartProducts = getProductsFromCart();
-  // déclaration de la variable permettant de filtrer les produits du panier en fonction de leur id et leur couleur
+  // déclaration de la variable permettant de filtrer les produits du panier en fonction de leur id ou de leur couleur
   let cartProductFiltered = cartProducts.filter(
-    (x) => x.id != id && x.color != color
+    (x) => x.id != id || x.color != color
   );
 
   localStorage.setItem(CART_KEY, JSON.stringify(cartProductFiltered));
@@ -297,9 +305,9 @@ function checkContactInput(value, regex, pError, msgError) {
   }
   //sinon le formulaire d'informations rempli par le client est correct
   else {
-     pError.textContent = "";
+    pError.textContent = "";
 
-     return true;
+    return true;
   }
 }
 

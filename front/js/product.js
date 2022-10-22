@@ -34,7 +34,6 @@ productPromise.then(function (product) {
     }
     //Une fois la couleur et la quantité choisi, alors le client peut ajouter son produit au panier
     addProductTocart(product, color, quantity);
-    //On renvoie une alerte confirmant que l'article a bien été ajouté au panier
-    alert("Le produit a été ajouté au panier");
+    
   });
 });
