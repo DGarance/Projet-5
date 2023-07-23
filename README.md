@@ -1,44 +1,44 @@
 # Projet n°5 | Parcours Développeur web | OpenClassrooms
 
-[JAVASCRIPT](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+## KANAP | Construisez un site e-commerce en Javascript :shopping_cart:
+## Contexte
 
-# KANAP | Construisez un site e-commerce en Javascript
+Ce projet a été réalisé dans le cadre de ma formation de développeuse web chez OpenClassrooms. L'objectif était de construire un site e-commerce en JavaScript, en intégrant dynamiquement les données de l'API fournie et en mettant en place un plan de test d'acceptation.
 
-## Scénario
+## Résumé du scénario
 
-Vous êtes en poste dans une agence de développement web depuis quelques semaines maintenant. Après avoir réalisé avec
-succès l'intégration de quelques sites web (HTML/CSS), on vous confie une nouvelle mission.
+Vous travaillez dans une agence de développement web et votre client est Kanap, une marque de canapés. Ils souhaitent créer une plateforme de e-commerce pour vendre leurs produits en ligne, en complément de leur boutique physique. Vous faites partie d'une équipe où le développeur front-end, Frank, a déjà intégré la maquette statique du site. Votre rôle est d'unifier le travail réalisé en intégrant dynamiquement les éléments de l'API dans les différentes pages web avec JavaScript. Vous devrez également mettre en place un plan de test d'acceptation pour le projet.
 
-Votre client est Kanap, une marque de canapés qui vend ses produits depuis sa boutique exclusivement. Aujourd'hui,
-celle-ci souhaiterait avoir une plateforme de e-commerce en plus de sa boutique physique pour vendre ses produits sur
-Internet.
+## Tâches à accomplir
 
-Dans le cadre de cette mission, vous travaillez avec une équipe constituée de :
+- Unifier les travaux déjà réalisés en intégrant dynamiquement les éléments de l'API dans les différentes pages web avec JavaScript.
+- Mettre en place un plan de test d'acceptation à partir du template fourni par l'équipe.
 
-- Corinne, le CTO de l'agence
-- Frank le développeur front-end qui s'est chargé d'intégrer la maquette statique du site
-- Bilal, le développeur back-end qui implémente l'API à laquelle est connecté le front-end
+## Structure du projet
 
-Les différentes tâches que vous devez mener à bien :
+Le projet est structuré de la manière suivante :
 
-- Unifier les travaux déjà réalisés par l'équipe en intégrant dynamiquement les éléments de l'API dans les différentes
-  pages web avec JavaScript.
+- `index.html`, `produit.html`, `panier.html`, `confirmation.html` : les pages du site déjà intégrées par Frank en version statique.
+- `styles/` : le dossier contenant les fichiers CSS pour le style du site.
+- `js/` : le dossier contenant les fichiers JavaScript pour intégrer les éléments dynamiques et interagir avec l'API.
+## Objectifs d'apprentissage
 
-- Mettre en place un plan de test d'acceptation à partir d'un template que l'équipe à pour habitude d'utiliser.
+Les objectifs d'apprentissage pour ce projet étaient :
+
+- Utiliser JavaScript pour intégrer dynamiquement des données provenant d'une API dans un site web.
+- Mettre en place un plan de test d'acceptation pour vérifier le bon fonctionnement du site.
+- Améliorer la gestion des événements et la manipulation du DOM en JavaScript.
 
 ## Compétences évaluées
 
-- Créer un plan de test pour une application
-
-- Valider des données issues de sources externes
-
-- Intéragir avec un web service avec JavaScript
-
-- Gérer des événements JavaScript
+- Créer un plan de test pour une application.
+- Valider des données issues de sources externes.
+- Interagir avec un web service avec JavaScript.
+- Gérer des événements JavaScript.
 
 # Instructions pour démarrer le projet
 
-# Kanap
+## Kanap
 
 This is the front end and back end server for Project 5 of the Web Developer path.
 
